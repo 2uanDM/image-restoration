@@ -29,9 +29,9 @@ def make_dataset(dir):
     return images
 
 ### Modify these 3 lines in your own environment
-indir="/home/quan/workspace/image-restoration/hq50k/"
+indir="/kaggle/working/image-restoration/hq50k/"
 target_folders=['hq50k']
-out_dir ="/home/quan/workspace/image-restoration/hq50k"
+out_dir ="/kaggle/working/image-restoration/hq50k"
 ###
 
 if os.path.exists(out_dir) is False:
