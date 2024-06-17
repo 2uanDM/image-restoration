@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*~
+*.pth
+*.zip
+*.pt
+hq50k
+runs
