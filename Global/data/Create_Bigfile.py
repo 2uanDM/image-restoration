@@ -29,9 +29,9 @@ def make_dataset(dir):
     return images
 
 ### Modify these 3 lines in your own environment
-indir="/kaggle/working/image-restoration"
+indir="/home/quan/workspace/image-restoration/hq50k"
 target_folders=['hq50k']
-out_dir ="/kaggle/working/image-restoration"
+out_dir ="/home/quan/workspace/image-restoration/hq50k"
 ###
 
 if os.path.exists(out_dir) is False:
@@ -40,9 +40,10 @@ if os.path.exists(out_dir) is False:
 #
 for target_folder in target_folders:
     curr_indir = os.path.join(indir, target_folder)
-    curr_out_file = os.path.join(os.path.join(out_dir, '%s.bigfile'%(target_folder)))
+    curr_out_file = os.path.join(os.path.join(out_dir, '%s.bigfile'%("VOC_RGB_JPEGImages")))
     image_lists = make_dataset(curr_indir)
     image_lists.sort()
+    image_lists = image_lists[:2000]
     with open(curr_out_file, 'wb') as wfid:
         # write total image number
         wfid.write(struct.pack('i', len(image_lists)))

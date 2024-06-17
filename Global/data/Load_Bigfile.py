@@ -35,6 +35,8 @@ class BigFileMemoryLoader(object):
             return self.img_names[index], img
         except Exception:
             print('Image read error for index %d: %s' % (index, self.img_names[index]))
+            with open("error.txt", "a") as f:
+                f.write(self.img_names[index])
             return self.__getitem__((index+1)%self.img_num)
 
 
