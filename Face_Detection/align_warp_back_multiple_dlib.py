@@ -215,7 +215,7 @@ def blur_blending(im1, im2, mask):
 
 
 def blur_blending_cv2(im1, im2, mask):
-
+    mask = mask.astype(np.float64)  # Convert mask to float64
     mask *= 255.0
 
     kernel = np.ones((9, 9), np.uint8)
@@ -360,7 +360,7 @@ if __name__ == "__main__":
         os.makedirs(save_url)
 
     face_detector = dlib.get_frontal_face_detector()
-    landmark_locator = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+    landmark_locator = dlib.shape_predictor("~/workspace/image-restoration/Face_Detection/shape_predictor_68_face_landmarks.dat")
 
     count = 0
 
