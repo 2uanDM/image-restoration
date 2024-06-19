@@ -45,7 +45,7 @@ def update_output_image(scratch_opts, input_image):
     image.save(os.path.join(input_image_dir, "input_image.jpg"))
     
     print(os.getcwd())
-    os.chdir("/home/quan/workspace/image-restoration")
+    os.chdir("~/workspace/image-restoration")
     
     # Stage 1: Overall Quality Improve
     print("Running Stage 1: Overall restoration")
