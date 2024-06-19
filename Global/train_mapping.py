@@ -15,11 +15,28 @@ import torchvision.utils as vutils
 from torch.autograd import Variable
 import datetime
 import random
+import wandb
+from dotenv import load_dotenv
 
+load_dotenv(override=True)
+wandb.login(
+    key=os.getenv("WANDB_API_KEY")
+)
 
 
 opt = TrainOptions().parse()
 visualizer = Visualizer(opt)
+time_now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+wandb.init(
+    project="image-restoration-cv",
+    name=f"{opt.name}-{time_now}",
+    config={
+    "learning_rate": 0.0002,
+    "architecture": "GlobalGenerator_DCDCv2",
+    "dataset": "HQ50K",
+    "epochs": opt.niter + opt.niter_decay + 1 - opt.start_epoch,
+    }
+)
 iter_path = os.path.join(opt.checkpoints_dir, opt.name, 'iter.txt')
 if opt.continue_train:
     try:
@@ -89,7 +106,7 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
         
         # sum per device losses
         losses = [ torch.mean(x) if not isinstance(x, int) else x for x in losses ]
-        loss_dict = dict(zip(model.module.loss_names, losses))
+        loss_dict = dict(zip(model.loss_names, losses))
 
         # calculate final loss scalar
         loss_D = (loss_dict['D_fake'] + loss_dict['D_real']) * 0.5
@@ -98,22 +115,25 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
 
         ############### Backward Pass ####################
         # update generator weights
-        model.module.optimizer_mapping.zero_grad()
+        model.optimizer_mapping.zero_grad()
         loss_G.backward()
-        model.module.optimizer_mapping.step()
+        model.optimizer_mapping.step()
 
         # update discriminator weights
-        model.module.optimizer_D.zero_grad()
+        model.optimizer_D.zero_grad()
         loss_D.backward()
-        model.module.optimizer_D.step()
+        model.optimizer_D.step()
 
         ############## Display results and errors ##########
         ### print out errors
         if i == 0 or total_steps % opt.print_freq == print_delta:
             errors = {k: v.data if not isinstance(v, int) else v for k, v in loss_dict.items()}
             t = (time.time() - iter_start_time) / opt.batchSize
-            visualizer.print_current_errors(epoch, epoch_iter, errors, t,model.module.old_lr)
+            visualizer.print_current_errors(epoch, epoch_iter, errors, t,model.old_lr)
             visualizer.plot_current_errors(errors, total_steps)
+            
+            # Log errors to wandb
+            wandb.log(errors, step=total_steps)
 
         ### display output images
         if save_fake:
@@ -134,6 +154,8 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
             try:
                 image_grid = vutils.save_image(imgs, opt.outputs_dir + opt.name + '/' + str(epoch) + '_' + str(total_steps) + '.png',
                         nrow=imgs_num, padding=0, normalize=True)
+                # Log images to wandb
+                wandb.log({"generated_images": [wandb.Image(opt.outputs_dir + opt.name + '/' + str(epoch) + '_' + str(total_steps) + '.png')]}, step=total_steps)
             except OSError as err:
                 print(err)
 
@@ -149,14 +171,14 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
     ### save model for this epoch
     if epoch % opt.save_epoch_freq == 0:
         print('saving the model at the end of epoch %d, iters %d' % (epoch, total_steps))        
-        model.module.save('latest')
-        model.module.save(epoch)
+        model.save('latest')
+        model.save(epoch)
         np.savetxt(iter_path, (epoch+1, 0), delimiter=',', fmt='%d')
 
     ### instead of only training the local enhancer, train the entire network after certain iterations
     if (opt.niter_fix_global != 0) and (epoch == opt.niter_fix_global):
-        model.module.update_fixed_params()
+        model.update_fixed_params()
 
     ### linearly decay learning rate after certain iterations
     if epoch > opt.niter:
-        model.module.update_learning_rate()
+        model.update_learning_rate()
