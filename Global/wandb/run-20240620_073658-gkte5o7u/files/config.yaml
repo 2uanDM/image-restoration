@@ -1,0 +1,45 @@
+wandb_version: 1
+
+learning_rate:
+  desc: null
+  value: 0.0002
+architecture:
+  desc: null
+  value: GlobalGenerator_DCDCv2
+dataset:
+  desc: null
+  value: HQ50K
+epochs:
+  desc: null
+  value: 252
+_wandb:
+  desc: null
+  value:
+    python_version: 3.8.19
+    cli_version: 0.17.1
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: true
+    start_time: 1718843818
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      - 105
+      2:
+      - 1
+      - 41
+      - 55
+      - 105
+      3:
+      - 13
+      - 16
+      - 23
+      - 61
+      4: 3.8.19
+      5: 0.17.1
+      8:
+      - 2
+      - 5
+      13: linux-x86_64

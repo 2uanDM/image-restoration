@@ -1,0 +1,142 @@
+{
+    "os": "Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.17",
+    "python": "3.8.19",
+    "heartbeatAt": "2024-06-20T00:31:45.160976",
+    "startedAt": "2024-06-20T00:31:44.313558",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--use_v2_degradation",
+        "--training_dataset",
+        "mapping",
+        "--use_vae_which_epoch",
+        "10",
+        "--continue_train",
+        "--name",
+        "mapping_quality",
+        "--label_nc",
+        "0",
+        "--loadSize",
+        "256",
+        "--fineSize",
+        "256",
+        "--dataroot",
+        "/home/quan/workspace/image-restoration/hq50k",
+        "--no_instance",
+        "--resize_or_crop",
+        "crop_only",
+        "--batchSize",
+        "8",
+        "--no_html",
+        "--gpu_ids",
+        "0",
+        "--nThreads",
+        "8",
+        "--load_pretrainA",
+        "/home/quan/workspace/image-restoration/Global/global_checkpoints/checkpoints/restoration/VAE_A_quality",
+        "--load_pretrainB",
+        "/home/quan/workspace/image-restoration/Global/global_checkpoints/checkpoints/restoration/VAE_B_quality",
+        "--l2_feat",
+        "60",
+        "--n_downsample_global",
+        "3",
+        "--mc",
+        "64",
+        "--k_size",
+        "4",
+        "--start_r",
+        "1",
+        "--mapping_n_block",
+        "6",
+        "--map_mc",
+        "512",
+        "--use_l1_feat",
+        "--niter",
+        "150",
+        "--niter_decay",
+        "100",
+        "--outputs_dir",
+        "/home/quan/workspace/image-restoration/runs/output",
+        "--checkpoints_dir",
+        "/home/quan/workspace/image-restoration/runs/checkpoints"
+    ],
+    "state": "running",
+    "program": "train_mapping.py",
+    "codePathLocal": "train_mapping.py",
+    "codePath": "Global/train_mapping.py",
+    "git": {
+        "remote": "https://github.com/2uanDM/image-restoration.git",
+        "commit": "b7e6e5ede8a76a81543efd417f7430c5a1128b4a"
+    },
+    "email": "hokage321xxx@gmail.com",
+    "root": "/home/quan/workspace/image-restoration",
+    "host": "QUANPC",
+    "username": "quan",
+    "executable": "/home/quan/miniconda3/envs/photo/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3686.3990000000003,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3686.399,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 101.4549331665039
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total": 12884901888
+        }
+    ],
+    "memory": {
+        "total": 28.396507263183594
+    }
+}

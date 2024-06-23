@@ -43,7 +43,7 @@ for target_folder in target_folders:
     curr_out_file = os.path.join(os.path.join(out_dir, '%s.bigfile'%("VOC_RGB_JPEGImages")))
     image_lists = make_dataset(curr_indir)
     image_lists.sort()
-    image_lists = image_lists[:2000]
+    image_lists = image_lists[:1500]
     with open(curr_out_file, 'wb') as wfid:
         # write total image number
         wfid.write(struct.pack('i', len(image_lists)))

@@ -1,0 +1,30 @@
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Current SDK version is 0.17.1
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Configure stats pid to 791710
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Loading settings from /home/quan/.config/wandb/settings
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Loading settings from /home/quan/workspace/image-restoration/Global/wandb/settings
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'api_key': '***REDACTED***'}
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'Global/train_mapping.py', 'program_abspath': '/home/quan/workspace/image-restoration/Global/train_mapping.py', 'program': 'train_mapping.py'}
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_init.py:_log_setup():520] Logging user logs to /home/quan/workspace/image-restoration/Global/wandb/run-20240620_073144-qe87ezoc/logs/debug.log
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_init.py:_log_setup():521] Logging internal logs to /home/quan/workspace/image-restoration/Global/wandb/run-20240620_073144-qe87ezoc/logs/debug-internal.log
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_init.py:init():560] calling init triggers
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.0002, 'architecture': 'GlobalGenerator_DCDCv2', 'dataset': 'HQ50K', 'epochs': 252}
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_init.py:init():610] starting backend
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [wandb_init.py:init():614] setting up manager
+2024-06-20 07:31:44,315 INFO    MainThread:791710 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-06-20 07:31:44,317 INFO    MainThread:791710 [wandb_init.py:init():622] backend started and connected
+2024-06-20 07:31:44,318 INFO    MainThread:791710 [wandb_init.py:init():711] updated telemetry
+2024-06-20 07:31:44,323 INFO    MainThread:791710 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-06-20 07:31:44,860 INFO    MainThread:791710 [wandb_run.py:_on_init():2402] communicating current version
+2024-06-20 07:31:45,137 INFO    MainThread:791710 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.17.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-06-20 07:31:45,137 INFO    MainThread:791710 [wandb_init.py:init():795] starting run threads in backend
+2024-06-20 07:31:46,716 INFO    MainThread:791710 [wandb_run.py:_console_start():2380] atexit reg
+2024-06-20 07:31:46,716 INFO    MainThread:791710 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-06-20 07:31:46,716 INFO    MainThread:791710 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-06-20 07:31:46,716 INFO    MainThread:791710 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-06-20 07:31:46,718 INFO    MainThread:791710 [wandb_init.py:init():838] run started, returning control to user process
+2024-06-20 07:35:32,289 WARNING MsgRouterThr:791710 [router.py:message_loop():77] message_loop has been closed

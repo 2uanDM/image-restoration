@@ -1,0 +1,121 @@
+Resuming from epoch 0 at iteration 0
+CustomDatasetDataLoader
+dataset [PairOldPhotos] was created
+start load bigfile (1.75 GB) into memory
+find total 2000 images
+load 0 images done
+load all 2000 images done
+-------------Filter the imgs whose size <256 in VOC-------------
+Image read error for index 9: 1007.jpg
+Image read error for index 203: 1220.jpg
+Image read error for index 232: 1252.jpg
+Image read error for index 308: 133.jpg
+Image read error for index 393: 1423.jpg
+Image read error for index 407: 1438.jpg
+Image read error for index 411: 1442.jpg
+Image read error for index 447: 1483.jpg
+/home/quan/miniconda3/envs/photo/lib/python3.8/site-packages/PIL/Image.py:1000: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+Image read error for index 526: 1566.jpg
+Image read error for index 553: 1595.jpg
+Image read error for index 718: 177.jpg
+Image read error for index 795: 1847.jpg
+Image read error for index 817: 1871.jpg
+Image read error for index 905: 1967.jpg
+Image read error for index 974: 2043.jpg
+Image read error for index 1048: 2123.jpg
+Image read error for index 1067: 2144.jpg
+Image read error for index 1072: 2150.jpg
+Image read error for index 1078: 2159.jpg
+Image read error for index 1184: 2266.jpg
+Image read error for index 1198: 2281.jpg
+Image read error for index 1240: 2328.jpg
+Image read error for index 1347: 2447.jpg
+Image read error for index 1359: 2459.jpg
+Image read error for index 1480: 2577.jpg
+Image read error for index 1490: 2587.jpg
+Image read error for index 1504: 26.jpg
+Image read error for index 1561: 2658.jpg
+Image read error for index 1666: 2766.jpg
+Image read error for index 1802: 2905.jpg
+Image read error for index 1831: 2933.jpg
+Image read error for index 1884: 2990.jpg
+Image read error for index 1932: 3040.jpg
+Image read error for index 1987: 3099.jpg
+--------Origin image num is [2000], filtered result is [1987]--------
+#training images = 1984
+Mapping: You are using the mapping model without global restoration.
+/home/quan/workspace/image-restoration/Global/global_checkpoints/checkpoints/restoration/VAE_A_quality/10_net_G.pth not exists yet!
+/home/quan/workspace/image-restoration/Global/global_checkpoints/checkpoints/restoration/VAE_B_quality/10_net_G.pth not exists yet!
+MultiscaleDiscriminator(
+  (scale0_layer0): Sequential(
+    (0): Conv2d(6, 64, kernel_size=(4, 4), stride=(2, 2), padding=(2, 2))
+    (1): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale0_layer1): Sequential(
+    (0): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(2, 2))
+    (1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (2): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale0_layer2): Sequential(
+    (0): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(2, 2))
+    (1): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (2): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale0_layer3): Sequential(
+    (0): Conv2d(256, 512, kernel_size=(4, 4), stride=(1, 1), padding=(2, 2))
+    (1): InstanceNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (2): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale0_layer4): Sequential(
+    (0): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), padding=(2, 2))
+  )
+  (scale1_layer0): Sequential(
+    (0): Conv2d(6, 64, kernel_size=(4, 4), stride=(2, 2), padding=(2, 2))
+    (1): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale1_layer1): Sequential(
+    (0): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(2, 2))
+    (1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (2): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale1_layer2): Sequential(
+    (0): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(2, 2))
+    (1): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (2): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale1_layer3): Sequential(
+    (0): Conv2d(256, 512, kernel_size=(4, 4), stride=(1, 1), padding=(2, 2))
+    (1): InstanceNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (2): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (scale1_layer4): Sequential(
+    (0): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), padding=(2, 2))
+  )
+  (downsample): AvgPool2d(kernel_size=3, stride=2, padding=[1, 1])
+)
+L1Loss()
+/home/quan/miniconda3/envs/photo/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/quan/miniconda3/envs/photo/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG19_Weights.IMAGENET1K_V1`. You can also use `weights=VGG19_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+---------- Optimizers initialized -------------
+/home/quan/workspace/image-restoration/Global/models/networks.py:808: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:78.)
+  fake_tensor = self.Tensor(input.size()).fill_(self.fake_label)
+(epoch: 1, iters: 16, time: 1.014 lr: 0.00020) G_Feat_L2: 89.670 G_GAN: 4.576 G_GAN_Feat: 13.568 G_VGG: 9.011 D_real: 4.769 D_fake: 2.229
+(epoch: 1, iters: 400, time: 0.656 lr: 0.00020) G_Feat_L2: 81.505 G_GAN: 1.754 G_GAN_Feat: 15.903 G_VGG: 8.312 D_real: 1.579 D_fake: 1.668
+(epoch: 1, iters: 800, time: 0.674 lr: 0.00020) G_Feat_L2: 84.824 G_GAN: 1.226 G_GAN_Feat: 15.622 G_VGG: 8.969 D_real: 0.954 D_fake: 1.053
+Traceback (most recent call last):
+  File "train_mapping.py", line 104, in <module>
+    losses, generated = model(Variable(data['label']), Variable(data['inst']),
+  File "/home/quan/miniconda3/envs/photo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/quan/miniconda3/envs/photo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/quan/workspace/image-restoration/Global/models/mapping_model.py", line 250, in forward
+    input_label, inst_map, real_image, feat_map = self.encode_input(label, inst, image, feat)
+  File "/home/quan/workspace/image-restoration/Global/models/mapping_model.py", line 217, in encode_input
+    input_label = label_map.data.cuda()
+  File "/home/quan/miniconda3/envs/photo/lib/python3.8/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 796058) is killed by signal: Killed.
